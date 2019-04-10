@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title = "YoYo #{(yield(:title))}"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+  body
+    .header
+      .header_link = link_to 'Home', root_url
+      .header_link = link_to 'About Me', about_me_url
+      .header_link = link_to 'Tricks', tricks_url
+      .header_link = link_to 'YoYo Maintenance', yoyo_maintenance_url
+    = yield

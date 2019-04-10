@@ -5,6 +5,9 @@ gem 'rails', '~> 5.2.2'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'rspec-rails'
+gem 'slim-rails'
+gem 'slim'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
@@ -31,6 +34,7 @@ group :production do
 end
 
 group :test do
+  gem 'rspec'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
