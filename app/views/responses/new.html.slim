@@ -1,0 +1,55 @@
+.new-response
+  h1 New response
+
+  div[style="display: inline-block"]
+
+    == render 'form'
+
+    = link_to 'Back', responses_path
+  div[style="display: inline-block"]
+    table
+      thead
+        tr
+          / th Content
+          / th Name
+          th
+          th
+          th
+          th
+
+      tbody
+        - @comments.each do |comment|
+          tr
+            td Comment
+            td Authur
+            td Id
+            td
+          tr
+            td = comment.content
+            td = comment.name
+            td = comment.id
+            td = link_to 'Show', comment
+            td = link_to 'Edit', edit_comment_path(comment)
+            td = link_to 'Delete', comment, data: { confirm: 'Are you sure?' }, method: :delete
+          -if comment.responses != []
+            tr
+              td
+              td
+              td
+              td
+            tr
+              th Responses
+              th
+              th
+              td
+            -comment.responses.each do |response|
+              tr
+                td = response.content
+                td Ezekiel
+                td
+                td
+              tr
+                td
+                td
+                td
+                td

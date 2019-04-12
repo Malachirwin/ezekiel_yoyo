@@ -10,4 +10,12 @@ class StaticPagesController < ApplicationController
 
   def tricks
   end
+
+  def trick_list
+    pdf_filename = File.join(Rails.root, "tmp/MWRLadder.pdf")
+    send_file(pdf_filename, :filename => "your_document.pdf", :disposition => 'inline', :type => "application/pdf")
+  end
+
+  def resources
+  end
 end

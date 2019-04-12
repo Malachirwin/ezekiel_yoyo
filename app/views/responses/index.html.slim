@@ -1,0 +1,37 @@
+h1 Listing responses
+
+table
+  thead
+    tr
+      th Content
+      th
+      th
+      th
+
+  tbody
+    - @responses.each do |response|
+      tr
+        td = response.content
+        td = link_to 'Show', response
+        td = link_to 'Edit', edit_response_path(response)
+        td = link_to 'Destroy', response, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+/
+/ = link_to 'New Response', new_response_path
+
+form method="POST" action="#{add_image_home_path}" enctype="multipart/form-data"
+  .field
+    div= label :blablabla, "description", class: :field_title
+    = text_area :description, :text, size: "20x20"
+
+  .field
+    div= label :blablabla, "Where To put it", class: :field_title
+    = select :where, :chioce, ['Home Top', 'Home Bottom', 'Tricks Top', 'Tricks Bottom', 'About_me Top', 'About_me Bottom']
+  .field
+    / div= f.label :content, class: :field_title
+    = file_field :video, 1, class: :field_title
+
+  .actions
+    input type="submit"
+  / .actions = submit

@@ -6,14 +6,17 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'rspec-rails'
+gem 'pry'
 gem 'slim-rails'
 gem 'slim'
+gem 'rb-readline'
+gem "paperclip"
+gem "image_magick"
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-
-
+gem 'rack-cors'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

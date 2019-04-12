@@ -1,0 +1,46 @@
+h1 Comments
+
+table
+  thead
+    tr
+      / th Content
+      / th Name
+      th
+      th
+      th
+
+  tbody
+    - @comments.each do |comment|
+      tr
+        td Comment
+        td Authur
+        td
+      tr
+        td = comment.content
+        td = comment.name
+        td = link_to 'Show', comment
+        / td = link_to 'Edit', edit_comment_path(comment)
+        / td = link_to 'Destroy', comment, data: { confirm: 'Are you sure?' }, method: :delete
+      -if comment.responses != []
+        tr
+          td
+          td
+          td
+        tr
+          th Responses
+          th
+          th
+        -comment.responses.each do |response|
+          tr
+            td = response.content
+            td Ezekiel
+            td
+          tr
+            td
+            td
+            td
+
+
+br
+
+= link_to 'Click to Comment', new_comment_path
