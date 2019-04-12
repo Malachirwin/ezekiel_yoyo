@@ -65,6 +65,7 @@ class ResponsesController < ApplicationController
         file << contents
       end
     end
+    redirect_to responses_url
   end
 
   # POST /responses
