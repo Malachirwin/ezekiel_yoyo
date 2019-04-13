@@ -11,10 +11,10 @@
   display: inline
 }
 .header {
-  margin: 0 -9999rem;
+  // margin: 0 -9999rem;
   margin-top: -8px;
   /* add back negative margin value */
-  padding: 0.25rem 9999rem;
+  // padding: 0.25rem 9999rem;
   text-align: center;
   height: 50px;
   background-color: #7c0000; //#b21c1c;
@@ -34,12 +34,13 @@
   width: 200px;
 }
 body {
+  border: 3px solid #c5c958;
   background-color: #080066 //#0074bc;
 }
 .header_link {
-  font-size: 35px;
+  font-size: 30px;
   display: inline-block;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 ul {
   color: #e8e6d0;
