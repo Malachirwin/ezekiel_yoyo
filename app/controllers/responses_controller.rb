@@ -8,6 +8,7 @@ class ResponsesController < ApplicationController
   # GET /responses.json
   def index
     @responses = Response.all
+    @comments = Comment.all
   end
 
   # GET /responses/1
@@ -43,8 +44,8 @@ class ResponsesController < ApplicationController
       video controls='controls'
         source src='videos/#{filename}' type='video/mp4'
     HEREDOC
-    if params[:where][:chioce].include? 'Top'
-      File.open(Rails.root.join('app', 'views', 'static_pages', "#{params[:where][:chioce].split(' ').first.downcase}.html.slim"), 'a+') do |file|
+    if params[:where][:choice].include? 'Top'
+      File.open(Rails.root.join('app', 'views', 'static_pages', "#{params[:where][:choice].split(' ').first.downcase}.html.slim"), 'a+') do |file|
         file_contents = file.read
         part1, part2 = file_contents.split('.top-of-videos')
         file_contents = <<~HEREDOC
@@ -57,11 +58,11 @@ class ResponsesController < ApplicationController
         HEREDOC
         # file << contents
       end
-      File.open(Rails.root.join('app', 'views', 'static_pages', "#{params[:where][:chioce].split(' ').first.downcase}.html.slim"), 'w') do |file|
+      File.open(Rails.root.join('app', 'views', 'static_pages', "#{params[:where][:choice].split(' ').first.downcase}.html.slim"), 'w') do |file|
         file.write(file_contents)
       end
     else
-      File.open(Rails.root.join('app', 'views', 'static_pages', "#{params[:where][:chioce].split(' ')[0].downcase}.html.slim"), 'a') do |file|
+      File.open(Rails.root.join('app', 'views', 'static_pages', "#{params[:where][:choice].split(' ')[0].downcase}.html.slim"), 'a') do |file|
         file << contents
       end
     end
@@ -111,7 +112,7 @@ class ResponsesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_response
-      if params[:response]
+      if !params[:video]
         @response = Response.find(params[:id])
       end
     end

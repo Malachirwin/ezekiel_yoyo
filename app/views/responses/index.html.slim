@@ -1,20 +1,51 @@
 h1 Listing responses
 
-table
-  thead
-    tr
-      th Content
-      th
-      th
-      th
-
-  tbody
-    - @responses.each do |response|
+div[style="display: inline-block"]
+  table
+    thead
       tr
-        td = response.content
-        td = link_to 'Show', response
-        td = link_to 'Edit', edit_response_path(response)
-        td = link_to 'Destroy', response, data: { confirm: 'Are you sure?' }, method: :delete
+        / th Content
+        / th Name
+        th
+        th
+        th
+        th
+
+    tbody
+      - @comments.each do |comment|
+        tr
+          td Comment
+          td Authur
+          td Id
+          td
+        tr
+          td = comment.content
+          td = comment.name
+          td = comment.id
+          td = link_to 'Show', comment
+          td = link_to 'Edit', edit_comment_path(comment)
+          td = link_to 'Delete', comment, data: { confirm: 'Are you sure?' }, method: :delete
+        -if comment.responses != []
+          tr
+            td
+            td
+            td
+            td
+          tr
+            th Responses
+            th
+            th
+            td
+          -comment.responses.each do |response|
+            tr
+              td = response.content
+              td Ezekiel
+              td
+              td = link_to 'Show', response
+              td = link_to 'Edit', edit_response_path(response)
+              td = link_to 'Destroy', response, data: { confirm: 'Are you sure?' }, method: :delete
+            tr
+
 
 br
 /
@@ -27,7 +58,7 @@ form method="POST" action="#{add_image_home_path}" enctype="multipart/form-data"
 
   .field
     div= label :blablabla, "Where To put it", class: :field_title
-    = select :where, :chioce, ['Home Top', 'Home Bottom', 'Tricks Top', 'Tricks Bottom', 'About_me Top', 'About_me Bottom']
+    = select :where, :choice, ['Home Top', 'Home Bottom', 'Tricks Top', 'Tricks Bottom', 'About_me Top', 'About_me Bottom']
   .field
     / div= f.label :content, class: :field_title
     = file_field :video, 1, class: :field_title

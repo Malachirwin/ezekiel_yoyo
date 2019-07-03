@@ -19,8 +19,6 @@ table
         td = comment.content
         td = comment.name
         td = link_to 'Show', comment
-        / td = link_to 'Edit', edit_comment_path(comment)
-        / td = link_to 'Destroy', comment, data: { confirm: 'Are you sure?' }, method: :delete
       -if comment.responses != []
         tr
           td

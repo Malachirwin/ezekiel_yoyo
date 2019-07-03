@@ -9,6 +9,7 @@ gem 'rspec-rails'
 gem 'pry'
 gem 'slim-rails'
 gem 'slim'
+gem 'launchy'
 gem 'rb-readline'
 gem "paperclip"
 gem "image_magick"
